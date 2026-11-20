@@ -704,13 +704,13 @@
 
                         <p class="fs-4 mb-1 text-break">1-Minute Blocks + Block Time "Ticks" (CHIP-2025-03)</p>
                         <p class="fs-5r text-secondary text-break">
-                            The Faster Blocks upgrade cuts Bitcoin Cash's target block time from 10 minutes to 1 minute. Blocks will arrive 10 times as often. Each block's reward, difficulty and block size limit drop to 1/10th, so coin issuance and throughput per hour stay exactly the same. It is mainly a change to how often blocks come, and little else.<br><br>
+                            The Faster Blocks upgrade cuts Bitcoin Cash's target block time from 10 minutes to 1 minute. Blocks will arrive 10 times as often. Each block's reward, difficulty, and block size limit drop to 1/10th, thereby maintaining coin issuance and throughput.<br><br>
                             <strong>Faster, more predictable confirmations:</strong><br>
-                            Today, 25% of single-confirmation transactions wait more than 14 minutes. With 1-minute blocks, 95% of single-confirmation transactions clear in under 3 minutes. Waits on more confirmations also get much more predictable. A 60-minute target (60 x 1-minute blocks) finishes in under 73 minutes 95% of the time. A 60-minute target today (6 x 10-minute blocks) runs past 79 minutes 20% of the time.<br><br>
+                            Today, 25% of single-confirmation transactions wait more than 14 minutes. With 1-minute blocks, 95% of single-confirmation transactions clear in under 3 minutes. Waits on more confirmations also get much more predictable. A 60-minute target (60 x 1-minute blocks) finishes in under 73 minutes 95% of the time. A 60-minute target today (6 x 10-minute blocks) runs past 79 minutes 20% of the time. <!-- TODO: replace with apples-to-apples comparison from bitcoincashautist: likely case (avg wait for 1 conf today ~17 min?, vs 1-min avg, vs 10 blocks at 1-min avg) and the same for worst case. --><br><br>
                             <strong>Stronger 0-conf and smoother DeFi:</strong><br>
-                            Sometimes a 0-conf payment falls back to a 1-conf wait, for example a risk-flagged transaction, a mempool desync, an exchange deposit or a swap. That fallback drops from a ~10-minute wait with high variance to under 3 minutes in most cases. Fewer blocks get stuck or delayed by contract contention, which helps BCH DeFi and on-chain DEXes recover faster.<br><br>
+                            0-conf payments can fall back to a 1-conf wait, for example a risk-flagged transaction, a mempool desync, an exchange deposit, or a swap. That fallback drops from a ~10-minute wait with high variance to under 3 minutes in most cases. Fewer blocks get stuck or delayed by contract contention, which helps BCH DeFi and on-chain DEXes recover faster. <!-- TODO: get apples-to-apples comparison from bitcoincashautist for the fallback-wait sentence. --><br><br>
                             <strong>Same 21M schedule:</strong><br>
-                            The 21 million coin supply and the timing of every halving are preserved exactly. The per-block reward is 1/10th of today's, but ten times as many blocks are mined. Already-set transaction timelocks keep their original meaning and will not unlock early.<br><br>
+                            The 21 million coin supply and the timing of every halving are preserved exactly. Already-set transaction timelocks keep their original meaning and will not unlock early.<br><br>
                             <strong>CHIP-2025-03 "Ticks":</strong><br>
                             The upgrade adds a 1-second "tick" unit that measures chain height in idealized time (600 ticks per 10-minute block, 60 ticks per 1-minute block). Everything that depends on height is re-expressed in ticks: the block subsidy, the ASERT difficulty adjustment, ABLA, coinbase maturity, block finalization, and transaction locktimes. This keeps the wall-clock meaning of each one the same. It also future-proofs the protocol, so any later block time change becomes a simple schedule entry instead of a protocol rewrite.<br><br>
                             <strong>What changes per block:</strong>
@@ -722,8 +722,11 @@
                             <li>Median-time-past window: ~100 minutes becomes ~10 minutes</li>
                         </ul>
                         <p class="fs-5r text-secondary text-break">
+                            Additionally, ABLA and DAA become more responsive and nodes require fewer resources to process each block.
+                        </p>
+                        <p class="fs-5r text-secondary text-break">
                             <strong>Network resilience:</strong><br>
-                            Orphan rates are modeled to stay below a tolerable 2% (0.41-1.94% across modeled conditions). If hashrate suddenly drops, the chain degrades gracefully: at 10% of normal hashrate, blocks come about every 10 minutes instead of every ~100.
+                            Orphan rates are modeled to stay below a tolerable 2% (0.41-1.94% across modeled conditions). <!-- Revisit after upgrade goes live to post actual orphan rate range --> If hashrate suddenly drops, the chain degrades gracefully: at 10% of normal hashrate, blocks come about every 10 minutes instead of every ~100.
                         </p>
                     </li>
                     <li id="final" class="timeline-item mb-5">
